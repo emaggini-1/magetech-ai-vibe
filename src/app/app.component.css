@@ -1,0 +1,88 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Sidenav container takes full height */
+.sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+/* Adjust height for mobile */
+@media (max-width: 599px) {
+  .sidenav-container {
+    height: calc(100vh - 56px);
+  }
+}
+
+/* Sidenav styling */
+.sidenav {
+  width: 250px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.nav-header {
+  padding: 16px 16px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  text-transform: uppercase;
+}
+
+/* Content container styling */
+.content-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Post card styling */
+.post-card, .no-post-card {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+mat-card-content {
+  padding: 16px 0;
+}
+
+/* Active menu item */
+.active {
+  background-color: rgba(63, 81, 181, 0.1);
+  border-left: 4px solid #3f51b5;
+}
+
+/* Blog post content styling */
+.post-card mat-card-content {
+  line-height: 1.6;
+}
+
+.post-card h2 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #3f51b5;
+}
+
+.post-card h3 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.post-card ul, .post-card ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+
+.post-card li {
+  margin-bottom: 8px;
+}
+
+.post-card p {
+  margin-bottom: 16px;
+}
