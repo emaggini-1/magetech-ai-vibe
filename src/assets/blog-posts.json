@@ -1,6 +1,10 @@
 [
   {
     "title": "About me",
-    "body": "<h2>Introduction to Angular</h2><p>Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript, a superset of JavaScript that adds optional static typing and class-based object-oriented programming.</p><h3>Key Features</h3><ul><li>Component-based architecture</li><li>Powerful templating system</li><li>Dependency injection</li><li>Comprehensive routing</li></ul><p>This blog will help you understand the basics of Angular development.</p>"
+    "body": "<h2>Why MageTech?</h2><p>One of my first email addresses was randomly assigned as MagE01@companyThatNoLongerExists.com</p><p>Also, being a bit of sci-fi nerd I remember the Arthur C. Clarke quote ,<b>\"Any sufficiently advanced technology is indistinguishable from magic\"</b>...I may have been a bit full of myself in early years.</p><p>I never developed a portfolio or GIT repo because I've been too busy writing code that makes money for companies. This updated website is an effort to change that, it was built with AI. Read the next post to learn more!</p>"
+  },
+  {
+    "title": "Built with AI",
+    "body": "<article>\n  <p>Am I a good developer because I am lazy? Maybe. I’ve stayed gainfully employed through a couple of recessions so that says something I guess.</p>\n\n  <p>But I admit I have been feeling the heat from the AI revolution. So this website is an experiment in being as <q>vibe codey</q> as possible. I’ve been using Junie from IntelliJ and chatGPT (<q>Cat, I farted</q> for you French speakers).</p>\n\n  <p>I’ve posted the code at a GIT repo.</p>\n</article>"
   }
 ]

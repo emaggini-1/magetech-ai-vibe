@@ -7,10 +7,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, take } from 'rxjs';
+import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 
 interface BlogPost {
   title: string;
@@ -28,6 +30,7 @@ interface BlogPost {
     MatListModule,
     MatIconModule,
     MatSidenavModule,
+    MatDialogModule,
     AsyncPipe,
     HttpClientModule
 ],
@@ -43,6 +46,7 @@ export class AppComponent implements OnInit {
 
   private breakpointObserver = inject(BreakpointObserver);
   private http = inject(HttpClient);
+  private dialog = inject(MatDialog);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 599px)')
     .pipe(
@@ -76,5 +80,19 @@ export class AppComponent implements OnInit {
 
     // Close sidenav when going to homepage
     this.sidenav.close();
+  }
+
+  openAboutMe() {
+    // Select the first blog post (About me)
+    if (this.blogPosts.length > 0) {
+      this.selectPost(this.blogPosts[0]);
+    }
+  }
+
+  openContactDialog() {
+    this.dialog.open(ContactDialogComponent, {
+      width: '400px',
+      panelClass: 'contact-dialog'
+    });
   }
 }
