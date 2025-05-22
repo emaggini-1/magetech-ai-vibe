@@ -75,4 +75,8 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  goToHomepage() {
+    this.selectedPost = null;
+  }
 }
