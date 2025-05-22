@@ -100,3 +100,11 @@ body {
   margin-bottom: 16px;
   line-height: 1.8;
 }
+
+.mat-card-content {
+  padding-top: unset;
+}
+
+.mat-card-header {
+  padding-top: unset;
+}

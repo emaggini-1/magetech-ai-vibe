@@ -67,16 +67,14 @@ export class AppComponent implements OnInit {
   selectPost(post: BlogPost) {
     this.selectedPost = post;
 
-    // Close sidenav in handset mode when a post is selected
-    // Using take(1) to automatically unsubscribe after first emission
-    this.isHandset$.pipe(take(1)).subscribe(isHandset => {
-      if (isHandset) {
-        this.sidenav.close();
-      }
-    });
+    // Close sidenav when a post is selected, regardless of device mode
+    this.sidenav.close();
   }
 
   goToHomepage() {
     this.selectedPost = null;
+
+    // Close sidenav when going to homepage
+    this.sidenav.close();
   }
 }

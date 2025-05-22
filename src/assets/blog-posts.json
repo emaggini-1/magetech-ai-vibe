@@ -1,22 +1,6 @@
 [
   {
-    "title": "Getting Started with Angular",
+    "title": "About me",
     "body": "<h2>Introduction to Angular</h2><p>Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript, a superset of JavaScript that adds optional static typing and class-based object-oriented programming.</p><h3>Key Features</h3><ul><li>Component-based architecture</li><li>Powerful templating system</li><li>Dependency injection</li><li>Comprehensive routing</li></ul><p>This blog will help you understand the basics of Angular development.</p>"
-  },
-  {
-    "title": "Working with Angular Material",
-    "body": "<h2>What is Angular Material?</h2><p>Angular Material is a UI component library for Angular developers. It provides a set of reusable, well-tested, and accessible UI components based on Google's Material Design specification.</p><h3>Popular Components</h3><ul><li>Buttons and indicators</li><li>Navigation components</li><li>Layout components</li><li>Form controls</li></ul><p>Using Angular Material can significantly speed up your development process while ensuring a consistent and modern look and feel.</p>"
-  },
-  {
-    "title": "Responsive Web Design",
-    "body": "<h2>Creating Responsive Angular Applications</h2><p>Responsive web design is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes.</p><h3>Key Principles</h3><ul><li>Flexible grid-based layouts</li><li>Media queries</li><li>Flexible images and media</li><li>Mobile-first approach</li></ul><p>In this post, we'll explore how to implement responsive design in Angular applications using CSS and Angular Material's responsive features.</p>"
-  },
-  {
-    "title": "State Management in Angular",
-    "body": "<h2>Managing Application State</h2><p>State management is a crucial aspect of any complex application. In Angular, there are several approaches to managing state effectively.</p><h3>Common Approaches</h3><ul><li>Services with RxJS</li><li>NgRx (Redux pattern)</li><li>NGXS</li><li>Akita</li></ul><p>This post explores different state management strategies and when to use each one in your Angular applications.</p>"
-  },
-  {
-    "title": "Angular Performance Optimization",
-    "body": "<h2>Making Your Angular App Faster</h2><p>Performance is a critical aspect of user experience. Angular provides several ways to optimize your application for better performance.</p><h3>Optimization Techniques</h3><ul><li>Change Detection Strategies</li><li>OnPush Change Detection</li><li>Lazy Loading</li><li>Virtual Scrolling</li><li>AOT Compilation</li></ul><p>Learn how to implement these techniques to make your Angular applications lightning fast.</p>"
   }
 ]
