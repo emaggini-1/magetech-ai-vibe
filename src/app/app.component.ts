@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, take } from 'rxjs';
 
@@ -28,11 +28,9 @@ interface BlogPost {
     MatListModule,
     MatIconModule,
     MatSidenavModule,
-    NgIf,
-    NgFor,
     AsyncPipe,
     HttpClientModule
-  ],
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -46,7 +44,7 @@ export class AppComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
   private http = inject(HttpClient);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 599px)')
     .pipe(
       map(result => result.matches),
       shareReplay()
@@ -59,10 +57,10 @@ export class AppComponent implements OnInit {
   loadBlogPosts() {
     this.http.get<BlogPost[]>('assets/blog-posts.json').subscribe(posts => {
       this.blogPosts = posts;
-      console.log('blog', this.blogPosts);
-      if (posts.length > 0) {
-        this.selectedPost = posts[0];
-      }
+      // console.log('blog', this.blogPosts);
+      // if (posts.length > 0) {
+      //   this.selectedPost = posts[0];
+      // }
     });
   }
 
