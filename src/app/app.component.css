@@ -88,7 +88,7 @@ mat-toolbar button:hover {
 }
 
 .mat-nav-list a:hover {
-  background-color: rgba(98, 0, 238, 0.05);
+  background-color: rgba(84, 110, 122, 0.05);
 }
 
 .mat-nav-list a:hover .nav-icon {
@@ -97,7 +97,7 @@ mat-toolbar button:hover {
 
 /* Active menu item */
 .active {
-  background-color: rgba(98, 0, 238, 0.1) !important;
+  background-color: rgba(84, 110, 122, 0.1) !important;
   border-left: 4px solid var(--primary-color);
   color: var(--primary-color);
   font-weight: 600 !important;
@@ -151,7 +151,7 @@ mat-card-subtitle {
 }
 
 mat-card-content {
-  padding: 24px;
+  padding: 10px;
   font-size: 1.05rem;
 }
 
@@ -169,7 +169,7 @@ mat-card-actions button {
 }
 
 mat-card-actions button:hover {
-  background-color: rgba(98, 0, 238, 0.1);
+  background-color: rgba(84, 110, 122, 0.1);
 }
 
 mat-card-actions mat-icon {

@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #6200ee;
-  --primary-light: #bb86fc;
-  --primary-dark: #3700b3;
+  --primary-color: #546e7a;
+  --primary-light: #78909c;
+  --primary-dark: #37474f;
   --secondary-color: #03dac6;
   --secondary-dark: #018786;
   --background: #f5f7fa;
@@ -67,6 +67,7 @@ body {
 
 .mat-mdc-button.mat-primary:hover {
   background-color: var(--primary-dark);
+  color: #ffffff !important; /* Darker (white) text color on hover */
 }
 
 .mat-mdc-form-field {
@@ -107,4 +108,22 @@ body {
 
 ::ng-deep mat-card-header {
   padding-top: unset;
+}
+
+/* Add this to your existing styles.css file */
+.mat-mdc-button.mat-primary {
+  background-color: var(--primary-color);
+  color: #e0e0e0 !important; /* Light grey color for button text */
+  border-radius: 24px;
+  padding: 0 24px;
+  transition: background-color var(--transition-speed);
+}
+
+.mat-mdc-button .mat-icon {
+  color: #e0e0e0; /* Light grey color for icons */
+}
+
+.mat-mdc-button.mat-primary:hover {
+  background-color: var(--primary-dark);
+  color: #7c5f5f !important; /* Darker (white) text color on hover */
 }
