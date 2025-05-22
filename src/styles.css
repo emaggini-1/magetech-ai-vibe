@@ -1,40 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #6200ee;
+  --primary-light: #bb86fc;
+  --primary-dark: #3700b3;
+  --secondary-color: #03dac6;
+  --secondary-dark: #018786;
+  --background: #f5f7fa;
+  --surface: #ffffff;
+  --error: #b00020;
+  --on-primary: #ffffff;
+  --on-secondary: #000000;
+  --on-background: #121212;
+  --on-surface: #121212;
+  --on-error: #ffffff;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s;
+}
 
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+  color: var(--on-background);
+  line-height: 1.6;
+  font-weight: 400;
+  transition: all var(--transition-speed) ease;
 }
 
 /* Custom Material styling */
 .mat-mdc-card {
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  overflow: hidden;
+}
+
+.mat-mdc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .mat-mdc-toolbar {
-  background-color: #3f51b5;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .container {
-  padding: 20px;
+  padding: 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .mat-mdc-button.mat-primary {
-  background-color: #3f51b5;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  border-radius: 24px;
+  padding: 0 24px;
+  transition: background-color var(--transition-speed);
+}
+
+.mat-mdc-button.mat-primary:hover {
+  background-color: var(--primary-dark);
 }
 
 .mat-mdc-form-field {
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
+/* Typography */
 .mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4 {
   margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--on-surface);
+}
+
+.mat-typography h1 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.mat-typography h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.mat-typography h3 {
+  font-size: 1.5rem;
+}
+
+.mat-typography p {
+  margin-bottom: 16px;
+  line-height: 1.8;
 }
