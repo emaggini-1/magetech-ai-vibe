@@ -7,7 +7,7 @@
       <mat-icon>menu</mat-icon>
     </button>
   }
-  <span><mat-icon class="logo-icon">auto_stories</mat-icon> MageTech</span>
+  <span><mat-icon class="logo-icon">developer_board</mat-icon> MageTech</span>
   <span class="toolbar-spacer"></span>
 </mat-toolbar>
 
@@ -17,14 +17,13 @@
     [opened]="!(isHandset$ | async)"
     class="sidenav mat-elevation-z2">
     <div class="nav-header">
-      <mat-icon>library_books</mat-icon> Blog Posts
+      <mat-icon>library_books</mat-icon>Posts
     </div>
     <mat-nav-list>
       @for (post of blogPosts; track post) {
         <a mat-list-item
           (click)="selectPost(post)"
           [class.active]="selectedPost === post">
-          <mat-icon class="nav-icon">article</mat-icon>
           {{ post.title }}
         </a>
       }
@@ -37,7 +36,6 @@
         <mat-card class="post-card">
           <mat-card-header>
             <mat-card-title>{{ selectedPost.title }}</mat-card-title>
-            <mat-card-subtitle>Published on MageTech Blog</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <div [innerHTML]="selectedPost.body"></div>
@@ -48,9 +46,8 @@
       @if (!selectedPost) {
         <mat-card class="no-post-card">
           <mat-card-header>
-            <mat-icon class="welcome-icon">auto_stories</mat-icon>
-            <mat-card-title>Welcome to MageTech Blog</mat-card-title>
-            <mat-card-subtitle>Explore the latest in technology</mat-card-subtitle>
+            <mat-card-title>Hello, My name is Elio Maggini</mat-card-title>
+            <mat-card-subtitle>I like technology in general and Angular/Nest development in particular</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <p>Please select a blog post from the menu to start reading.</p>
