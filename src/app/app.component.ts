@@ -11,7 +11,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable, map, shareReplay, take } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 
 interface BlogPost {
@@ -38,7 +38,6 @@ interface BlogPost {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'blog-test2';
   blogPosts: BlogPost[] = [];
   selectedPost: BlogPost | null = null;
 
