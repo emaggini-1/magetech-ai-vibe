@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
   private http = inject(HttpClient);
   private dialog = inject(MatDialog);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 599px)')
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
@@ -71,15 +71,19 @@ export class AppComponent implements OnInit {
   selectPost(post: BlogPost) {
     this.selectedPost = post;
 
-    // Close sidenav when a post is selected, regardless of device mode
-    this.sidenav.close();
+    // Close sidenav only when on mobile/handset mode (mode is 'over')
+    if (this.sidenav.mode === 'over') {
+      this.sidenav.close();
+    }
   }
 
   goToHomepage() {
     this.selectedPost = null;
 
-    // Close sidenav when going to homepage
-    this.sidenav.close();
+    // Close sidenav only when on mobile/handset mode (mode is 'over')
+    if (this.sidenav.mode === 'over') {
+      this.sidenav.close();
+    }
   }
 
   openAboutMe() {
