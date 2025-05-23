@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
       </div>
       <div class="contact-item">
         <mat-icon>email</mat-icon>
-        <a [href]="'mailto:'+emailLink">{{emailLink}}</a>
+        <a [href]="'mailto:'+emailLink" target="_blank">{{emailLink}}</a>
       </div>
       <div class="contact-item">
         <mat-icon>link</mat-icon>

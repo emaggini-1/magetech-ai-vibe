@@ -8,21 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, take } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
-
-// Define the interface for the window object with our custom property
-declare global {
-  interface Window {
-    angularComponentReference: {
-      component: AppComponent;
-      zone: NgZone;
-    };
-  }
-}
 
 interface BlogPost {
   title: string;
@@ -66,12 +56,6 @@ export class AppComponent implements OnInit {
     );
 
   ngOnInit() {
-    // Expose the component instance and NgZone to the window object
-    window.angularComponentReference = {
-      component: this,
-      zone: this.zone
-    };
-
     this.loadBlogPosts();
   }
 
