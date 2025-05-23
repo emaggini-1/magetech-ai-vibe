@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
   private http = inject(HttpClient);
   private dialog = inject(MatDialog);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 840px)')
     .pipe(
       map(result => result.matches),
       shareReplay()
