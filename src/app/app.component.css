@@ -285,3 +285,7 @@ mat-card-actions mat-icon {
     font-size: 1.1rem;
   }
 }
+
+::ng-deep.mdc-list-item__primary-text {
+ text-wrap: auto!important;
+}

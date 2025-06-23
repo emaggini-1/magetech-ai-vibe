@@ -10,6 +10,10 @@
   {
     "title": "The job interview",
     "body": "<article>\n  <p>I've done a <a href=\"https://youtu.be/4gEeCtqILvk\" target=\"_blank\">low-tech screen recording of a personal code review</a> of the current state of the project.</p>\n\n  <p>This will give you an idea of my thought process and how I conduct myself in an interview.</p>\n\n  <p>If you are looking for someone who can calculate a Fibonacci sequence using recursive calls during a job interview without the use of StackOverflow/Google/AI, I'm not your developer.</p>\n\n  <p>If you are looking for an experienced, thoughtful developer who is capable of getting stuff done in short order, please say hello. :)</p>\n</article>"
+  },
+  {
+    "title": "HIPAA compliant chatbot in 8 hours....sorta",
+    "body": "<article><p>Here is a chatbot that I built in 8 hours using AI. It tries to be HIPAA compliant.</p><p>It uses Telegram bot for a secure channel. On my local machine, the text file is encrypted as is my hard-drive. So the spirit is there.</p><p>NestJS is the backend. It handles appending messages to an encrypted file.</p><p>It is meant as an answering service for a therapist. It is not meant to provide treatment but to provide a high-level summary of a client's messages sent to bot.</p><p>For this POC, I used an Ollama local server using <b>llama3.2</b>. Here's a git repo with more details: <a href=\"https://github.com/emaggini-1/nestjs-telegram-bot.git\" target=\"_blank\">https://github.com/emaggini-1/nestjs-telegram-bot.git</a></p></article>"
   }
 
 ]
