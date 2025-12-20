@@ -10,15 +10,11 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, catchError, throwError } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-
-interface BlogPost {
-  title: string;
-  body: string;
-}
+import { BlogService, BlogPost } from './services/blog.service';
 
 @Component({
   selector: 'app-root',
@@ -46,10 +42,10 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   private breakpointObserver = inject(BreakpointObserver);
-  private http = inject(HttpClient);
   private dialog = inject(MatDialog);
   private zone = inject(NgZone);
   private sanitizer = inject(DomSanitizer);
+  private blogService = inject(BlogService);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 840px)')
     .pipe(
@@ -63,7 +59,7 @@ export class AppComponent implements OnInit {
 
   loadBlogPosts() {
     this.loading = true;
-    this.http.get<BlogPost[]>('assets/blog-posts.json').pipe(
+    this.blogService.getBlogPosts().pipe(
       catchError(error => {
         console.error('Error loading blog posts:', error);
         return throwError(() => error);
