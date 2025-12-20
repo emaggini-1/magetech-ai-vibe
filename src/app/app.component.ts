@@ -13,6 +13,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 interface BlogPost {
   title: string;
@@ -47,6 +48,7 @@ export class AppComponent implements OnInit {
   private http = inject(HttpClient);
   private dialog = inject(MatDialog);
   private zone = inject(NgZone);
+  private sanitizer = inject(DomSanitizer);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 840px)')
     .pipe(
@@ -105,5 +107,9 @@ export class AppComponent implements OnInit {
       width: '400px',
       panelClass: 'contact-dialog'
     });
+  }
+
+  safeHtml(content: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(content);
   }
 }
