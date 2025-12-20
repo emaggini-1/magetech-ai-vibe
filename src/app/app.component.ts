@@ -11,7 +11,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable, map, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay, catchError, throwError } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -41,6 +41,7 @@ interface BlogPost {
 export class AppComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   selectedPost: BlogPost | null = null;
+  loading: boolean = false;
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -61,12 +62,20 @@ export class AppComponent implements OnInit {
   }
 
   loadBlogPosts() {
-    this.http.get<BlogPost[]>('assets/blog-posts.json').subscribe(posts => {
-      this.blogPosts = posts;
-      // console.log('blog', this.blogPosts);
-      // if (posts.length > 0) {
-      //   this.selectedPost = posts[0];
-      // }
+    this.loading = true;
+    this.http.get<BlogPost[]>('assets/blog-posts.json').pipe(
+      catchError(error => {
+        console.error('Error loading blog posts:', error);
+        return throwError(() => error);
+      })
+    ).subscribe({
+      next: posts => {
+        this.blogPosts = posts;
+        this.loading = false;
+      },
+      error: err => {
+        this.loading = false;
+      }
     });
   }
 
