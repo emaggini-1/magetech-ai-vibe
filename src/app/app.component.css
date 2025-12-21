@@ -88,7 +88,9 @@ mat-toolbar button:hover {
 }
 
 .mat-nav-list a:hover {
-  background-color: rgba(84, 110, 122, 0.05);
+  background-color: rgba(84, 110, 122, 0.1);
+  transform: translateX(4px);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
 }
 
 .mat-nav-list a:hover .nav-icon {
