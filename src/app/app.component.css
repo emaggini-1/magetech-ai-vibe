@@ -289,3 +289,7 @@ mat-card-actions mat-icon {
 ::ng-deep.mdc-list-item__primary-text {
  text-wrap: auto!important;
 }
+
+.mat-mdc-list-item:hover {
+  background-color: rgba(25, 163, 227, 0.05);
+}

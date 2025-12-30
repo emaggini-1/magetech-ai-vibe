@@ -14,6 +14,10 @@
   {
     "title": "HIPAA compliant chatbot in 8 hours....sorta",
     "body": "<article><p>Here is a chatbot that I built in 8 hours using AI. It tries to be HIPAA compliant.</p><p>It uses Telegram bot for a secure channel. On my local machine, the text file is encrypted as is my hard-drive. So the spirit is there.</p><p>NestJS is the backend. It handles appending messages to an encrypted file.</p><p>It is meant as an answering service for a therapist. It is not meant to provide treatment but to provide a high-level summary of a client's messages sent to bot.</p><p>For this POC, I used an Ollama local server using <b>llama3.2</b>. Here's a git repo with more details: <a href=\"https://github.com/emaggini-1/nestjs-telegram-bot.git\" target=\"_blank\">https://github.com/emaggini-1/nestjs-telegram-bot.git</a></p></article>"
+  },
+  {
+    "title": "It's amazing how fast thing's change",
+    "body": "<article><p>6 months ago the IDE tools were slow and clunky. Now thanks to the windsurf plugin for JetBrains, I am able to code at an entirely new level. These tools are certainly bad for CS101 students just starting out but once you can tell the difference between bad code and good code, it really is revolutionary.</p>\n</article>"
   }
 
 ]
