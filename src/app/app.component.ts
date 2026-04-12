@@ -72,12 +72,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  selectPost(post: BlogPost) {
+  async selectPost(post: BlogPost): Promise<void> {
     this.selectedPost = post;
 
     // Close sidenav only when on mobile/handset mode (mode is 'over')
     if (this.sidenav.mode === 'over') {
-      this.sidenav.close();
+      await this.sidenav.close();
     }
   }
 
