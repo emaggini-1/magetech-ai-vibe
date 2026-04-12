@@ -309,3 +309,19 @@ mat-card-actions mat-icon {
 .mat-mdc-list-item:hover {
   background-color: rgba(25, 163, 227, 0.05);
 }
+
+::ng-deep .mdc-list-item__primary-text {
+  text-wrap: auto!important;
+}
+
+::ng-deep .mdc-list-item {
+  height: auto !important;
+  min-height: 48px !important;
+}
+
+::ng-deep .mdc-list-item__primary-text {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  display: block !important;
+}
