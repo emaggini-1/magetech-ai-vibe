@@ -30,18 +30,26 @@
 
   <mat-sidenav-content>
     <div class="content-container">
-      @if (selectedPost) {
-        <mat-card class="post-card">
-          <mat-card-header>
-            <mat-card-title>{{ selectedPost.title }}</mat-card-title>
-          </mat-card-header>
+      @if (loading) {
+        <mat-card class="loading-card">
           <mat-card-content>
-            <div [innerHTML]="selectedPost.body"></div>
+            <p>Loading blog posts...</p>
           </mat-card-content>
         </mat-card>
       }
 
-      @if (!selectedPost) {
+      @if (!loading && selectedPost) {
+        <mat-card class="post-card">
+          <mat-card-header>
+            <mat-card-title>{{ selectedPost.title }}</mat-card-title>
+          </mat-card-header>
+        <mat-card-content>
+            <div [innerHTML]="safeHtml(selectedPost.body)"></div>
+          </mat-card-content>
+        </mat-card>
+      }
+
+      @if (!loading && !selectedPost) {
         <mat-card class="no-post-card">
           <mat-card-header>
             <mat-card-title>Hello, My name is Elio Maggini</mat-card-title>

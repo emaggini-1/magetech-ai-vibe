@@ -10,14 +10,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable, map, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay, catchError, throwError } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
-
-interface BlogPost {
-  title: string;
-  body: string;
-}
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { BlogService, BlogPost } from './services/blog.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +27,7 @@ interface BlogPost {
     MatIconModule,
     MatSidenavModule,
     MatDialogModule,
-    AsyncPipe,
-    HttpClientModule
+    AsyncPipe
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -40,12 +35,14 @@ interface BlogPost {
 export class AppComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   selectedPost: BlogPost | null = null;
+  loading: boolean = false;
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   private breakpointObserver = inject(BreakpointObserver);
-  private http = inject(HttpClient);
   private dialog = inject(MatDialog);
+  private sanitizer = inject(DomSanitizer);
+  private blogService = inject(BlogService);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 840px)')
     .pipe(
@@ -58,12 +55,20 @@ export class AppComponent implements OnInit {
   }
 
   loadBlogPosts() {
-    this.http.get<BlogPost[]>('assets/blog-posts.json').subscribe(posts => {
-      this.blogPosts = posts;
-      // console.log('blog', this.blogPosts);
-      // if (posts.length > 0) {
-      //   this.selectedPost = posts[0];
-      // }
+    this.loading = true;
+    this.blogService.getBlogPosts().pipe(
+      catchError(error => {
+        console.error('Error loading blog posts:', error);
+        return throwError(() => error);
+      })
+    ).subscribe({
+      next: posts => {
+        this.blogPosts = posts;
+        this.loading = false;
+      },
+      error: _err => {
+        this.loading = false;
+      }
     });
   }
 
@@ -97,5 +102,9 @@ export class AppComponent implements OnInit {
       width: '400px',
       panelClass: 'contact-dialog'
     });
+  }
+
+  safeHtml(content: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(content);
   }
 }
