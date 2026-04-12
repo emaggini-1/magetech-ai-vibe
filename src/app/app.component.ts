@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -46,7 +46,6 @@ export class AppComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
   private http = inject(HttpClient);
   private dialog = inject(MatDialog);
-  private zone = inject(NgZone);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 840px)')
     .pipe(
@@ -90,13 +89,6 @@ export class AppComponent implements OnInit {
     // Select the first blog post (About me)
     if (this.blogPosts.length > 0) {
       this.selectPost(this.blogPosts[0]);
-    }
-  }
-
-  openPostByIndex(index: number) {
-    // Select the blog post at the specified index
-    if (this.blogPosts.length > index) {
-      this.selectPost(this.blogPosts[index]);
     }
   }
 
