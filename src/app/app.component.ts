@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject, NgZone, SecurityContext } from '@angular/core';
+import { Component, OnInit, ViewChild, inject, SecurityContext } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -7,12 +7,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, catchError, throwError } from 'rxjs';
-import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BlogService, BlogPost } from './services/blog.service';
 
@@ -27,10 +25,9 @@ import { BlogService, BlogPost } from './services/blog.service';
     MatListModule,
     MatIconModule,
     MatSidenavModule,
-    MatDialogModule,
     AsyncPipe,
     HttpClientModule
-],
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -42,8 +39,6 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   private breakpointObserver = inject(BreakpointObserver);
-  private dialog = inject(MatDialog);
-  private zone = inject(NgZone);
   private sanitizer = inject(DomSanitizer);
   private blogService = inject(BlogService);
 
@@ -105,13 +100,6 @@ export class AppComponent implements OnInit {
     if (this.blogPosts.length > index) {
       this.selectPost(this.blogPosts[index]);
     }
-  }
-
-  openContactDialog() {
-    this.dialog.open(ContactDialogComponent, {
-      width: '400px',
-      panelClass: 'contact-dialog'
-    });
   }
 
   safeHtml(content: string): string {
