@@ -29,6 +29,47 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    @if (!loading && !selectedPost) {
+      <div class="hero">
+        <div class="hero-bg">
+          <div class="hero-grid"></div>
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+          <div class="hero-orb hero-orb-3"></div>
+        </div>
+
+        <div class="hero-body">
+          <div class="hero-terminal">
+            <span class="hero-prompt">~/magetech&nbsp;$&nbsp;</span><span class="hero-cmd">whoami</span>
+          </div>
+
+          <h1 class="hero-name">
+            <span class="hero-name-first">Elio Maggini</span>
+          </h1>
+
+          <p class="hero-sub">Angular&nbsp;·&nbsp;NestJS&nbsp;·&nbsp;AI-assisted&nbsp;development</p>
+
+          <blockquote class="hero-quote">
+            "Any sufficiently advanced technology is indistinguishable from magic."
+            <cite class="hero-cite">— Arthur C. Clarke</cite>
+          </blockquote>
+
+          <div class="hero-actions">
+            <button class="hero-btn hero-btn-primary" (click)="openAboutMe()">About me</button>
+            <button class="hero-btn hero-btn-ghost" (click)="openContactDialog()">Say hello</button>
+          </div>
+        </div>
+
+        <footer class="hero-footer">
+          <span class="hero-tag">Angular 21</span>
+          <span class="hero-tag">NestJS</span>
+          <span class="hero-tag">TypeScript</span>
+          <span class="hero-tag">RAG / LLMs</span>
+          <span class="hero-tag">Solana / NFT</span>
+        </footer>
+      </div>
+    }
+
     <div class="content-container">
       @if (loading) {
         <mat-card class="loading-card">
@@ -43,31 +84,9 @@
           <mat-card-header>
             <mat-card-title>{{ selectedPost.title }}</mat-card-title>
           </mat-card-header>
-        <mat-card-content>
+          <mat-card-content>
             <div [innerHTML]="safeHtml(selectedPost.body)"></div>
           </mat-card-content>
-        </mat-card>
-      }
-
-      @if (!loading && !selectedPost) {
-        <mat-card class="no-post-card">
-          <mat-card-header>
-            <mat-card-title>Hello, My name is Elio Maggini</mat-card-title>
-            <mat-card-subtitle>I like technology in general and Angular/Nest development in particular</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>If you found this website you are probably considering hiring me.</p>
-            <p>Alternatively, it's a bit of good ol' fashioned cyberstalking.</p>
-            <p>Either way, welcome!</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary" (click)="openAboutMe()">
-              <mat-icon>info</mat-icon> About me
-            </button>
-            <button mat-button color="primary" (click)="openContactDialog()">
-              <mat-icon>contact_support</mat-icon> Contact
-            </button>
-          </mat-card-actions>
         </mat-card>
       }
     </div>
