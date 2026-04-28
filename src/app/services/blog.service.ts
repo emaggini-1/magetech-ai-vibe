@@ -7,6 +7,7 @@ export interface BlogPost {
   body: string;
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +17,5 @@ export class BlogService {
 
   getBlogPosts(): Observable<BlogPost[]> {
     return this.http.get<BlogPost[]>('assets/blog-posts.json');
-  }
+ }
 }

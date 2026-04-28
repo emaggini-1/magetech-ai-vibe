@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, inject, NgZone, SecurityContext } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -13,7 +13,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, map, shareReplay, catchError, throwError } from 'rxjs';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { BlogService, BlogPost } from './services/blog.service';
 
 @Component({
@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  safeHtml(content: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(content);
+  safeHtml(content: string): string {
+    return this.sanitizer.sanitize(SecurityContext.HTML, content) ?? '';
   }
 }
